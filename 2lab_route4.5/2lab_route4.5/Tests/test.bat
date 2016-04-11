@@ -17,6 +17,16 @@ if NOT errorlevel 1 goto testFailed
 fc /b test_output2.txt output2.txt
 if errorlevel 1 goto testFailed
 
+%program% input3.txt > test_output3.txt
+if NOT errorlevel 1 goto testFailed
+fc /b test_output3.txt output3.txt
+if errorlevel 1 goto testFailed
+
+%program% input4.txt > test_output4.txt
+if errorlevel 1 goto testFailed
+fc /b test_output4.txt output4.txt
+if errorlevel 1 goto testFailed
+
 echo OK
 exit /b
 

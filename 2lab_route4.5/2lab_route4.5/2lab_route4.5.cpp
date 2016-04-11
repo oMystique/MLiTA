@@ -1,5 +1,10 @@
 #include "routeFinder.h"
 
+static const size_t MAX_MATRIX_DIMENSION_SIZE = 20;
+static const size_t MIN_MATRIX_DIMENSION_SIZE = 2;
+static const size_t MIN_STEPS_COUNT = 1;
+static const size_t MAX_STEPS_COUNT = 20;
+
 std::ifstream OpenFile(std::string const &fileName)
 {
 	std::ifstream inputFile;
@@ -12,9 +17,10 @@ bool FileIsOpened(std::ifstream &inputFile)
 	return inputFile.is_open();
 }
 
-bool CheckCorrectnessTaskOptions(int N, int K)
+bool CheckCorrectnessTaskOptions(size_t N, size_t K)
 {
-	return (((2 <= N) && (N <= 20) && (1 <= K) && (K <= 20)));
+	return (((MIN_MATRIX_DIMENSION_SIZE <= N) && (N <= MAX_MATRIX_DIMENSION_SIZE) 
+		&& (MIN_STEPS_COUNT <= K) && (K <= MAX_STEPS_COUNT)));
 }
 
 vector::Options ParseTaskOptions(std::ifstream &inputFile)
@@ -34,9 +40,9 @@ vector::BinaryInt ParsingFileToRouteArray(std::ifstream &inputFile, vector::Opti
 
 	if (N != 0) 
 	{
-		for (unsigned i = 1; i <= N; ++i)
+		for (size_t i = 1; i <= N; ++i)
 		{
-			for (unsigned j = 1; j <= N; ++j)
+			for (size_t j = 1; j <= N; ++j)
 			{
 				inputFile >> routeArray[i][j];
 			}

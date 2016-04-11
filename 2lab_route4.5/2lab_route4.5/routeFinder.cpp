@@ -20,7 +20,7 @@ void CRouteFinder::ResizeArrays()
 		std::vector<std::string>(m_arrayOptions.squareMatrixDimension + 1, ""));
 }
 
-void CRouteFinder::SetNewCellParamethers(int & max, std::string & routeStr, int i, int j)
+void CRouteFinder::SetNewCellParamethers(int & max, std::string & routeStr, size_t i, size_t j)
 {
 	max = m_valueArray[i][j];
 	routeStr = m_strArray[i][j];
@@ -36,11 +36,11 @@ void CRouteFinder::FindRoute(const vector::BinaryInt &inputArray)
 	int max;
 	std::string routeStr;
 
-	for (int stepsCounter = 1; stepsCounter <= m_arrayOptions.stepsCount; ++stepsCounter)
+	for (size_t stepsCounter = 1; stepsCounter <= m_arrayOptions.stepsCount; ++stepsCounter)
 	{
-		for (int i = 1; i <= m_arrayOptions.squareMatrixDimension; ++i)
+		for (size_t i = 1; i <= m_arrayOptions.squareMatrixDimension; ++i)
 		{
-			for (int j = 1; j <= m_arrayOptions.squareMatrixDimension; ++j)
+			for (size_t j = 1; j <= m_arrayOptions.squareMatrixDimension; ++j)
 			{
 				if (((i + j) % 2) != (stepsCounter % 2))
 				{
@@ -80,9 +80,9 @@ std::string CRouteFinder::GetRoute()const
 	int max = 0;
 	std::string routeStr;
 
-	for (int i = 0; i <= m_arrayOptions.squareMatrixDimension; ++i)
+	for (size_t i = 0; i <= m_arrayOptions.squareMatrixDimension; ++i)
 	{
-		for (int j = 0; j <= m_arrayOptions.squareMatrixDimension; ++j)
+		for (size_t j = 0; j <= m_arrayOptions.squareMatrixDimension; ++j)
 		{
 			if (m_valueArray[i][j] > max)
 			{

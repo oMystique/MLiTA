@@ -12,8 +12,8 @@ typedef std::vector<std::vector<std::string> > BinaryStr;
 
 struct Options
 {
-	int squareMatrixDimension;
-	int stepsCount;
+	size_t squareMatrixDimension;
+	size_t stepsCount;
 };
 
 }
@@ -27,7 +27,7 @@ public:
 private:
 	bool CellParamethersIsCorrect(int counter, int bound, int currentValue, int maxValue);
 	void ResizeArrays();
-	void SetNewCellParamethers(int &max, std::string &routeStr, int i, int j);
+	void SetNewCellParamethers(int &max, std::string &routeStr, size_t i, size_t j);
 private:
 	vector::BinaryInt m_valueArray;
 	vector::BinaryStr m_strArray;
