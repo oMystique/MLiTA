@@ -20,7 +20,7 @@ int CDirector::GetLabyrinthWallsQuantity()
 	return m_wallsQuantity;
 }
 
-void CDirector::CheckSpecificCells(size_t i, size_t j, int &emptyCells)
+void CDirector::CheckSpecificCell(size_t i, size_t j, int &emptyCells)
 {
 	if (m_labyrinth[i][j] == '.')
 	{
@@ -38,22 +38,22 @@ void CDirector::CalculateWallsQuantity(size_t i, size_t j)
 
 		if (i > 0)
 		{
-			CheckSpecificCells(i - 1, j, emptyCells);
+			CheckSpecificCell(i - 1, j, emptyCells);
 		}
 
 		if (i < m_labyrinth.size())
 		{
-			CheckSpecificCells(i + 1, j, emptyCells);
+			CheckSpecificCell(i + 1, j, emptyCells);
 		}
 
 		if (j > 0)
 		{
-			CheckSpecificCells(i, j - 1, emptyCells);
+			CheckSpecificCell(i, j - 1, emptyCells);
 		}
 
 		if (j < m_labyrinth.size())
 		{
-			CheckSpecificCells(i, j + 1, emptyCells);
+			CheckSpecificCell(i, j + 1, emptyCells);
 		}
 
 		m_wallsQuantity += WALLS_COUNT - emptyCells;

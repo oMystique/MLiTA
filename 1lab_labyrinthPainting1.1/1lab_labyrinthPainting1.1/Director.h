@@ -14,7 +14,7 @@ public:
 
 private:
 	void CalculateWallsQuantity(size_t i, size_t j);
-	void CheckSpecificCells(size_t i, size_t j, int &emptyCells);
+	void CheckSpecificCell(size_t i, size_t j, int &emptyCells);
 
 private:
 	int m_wallsQuantity;
