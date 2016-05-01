@@ -46,7 +46,7 @@ void CGraphReader::InsertElement(Target const & target, size_t start)
 	{
 		m_ways.at(start).emplace(target);
 	}
-	else
+	else 
 	{
 		Targets targets;
 		targets.emplace(target);
