@@ -7,24 +7,27 @@ CSmugglersOperator::CSmugglersOperator(Graph && graph)
 {
 }
 
-void CSmugglersOperator::FindGreatestWay(size_t edge, int64_t &cost)
+bool CSmugglersOperator::FindGreatestWay(size_t &edge, int64_t &cost)
 {
 	for (auto way : m_graph.ways.at(edge))
 	{
-		if (m_graph.ways.find(way.end) != m_graph.ways.end())
+		if (m_graph.ways.find(way.end) != m_graph.ways.end() 
+			&& way.end != m_graph.graphInfo.start)
 		{
 			if (cost > way.cost)
 			{
 				cost = way.cost;
 			}
-			if (edge != m_graph.graphInfo.start && edge != m_graph.graphInfo.end)
+			if (edge != m_graph.graphInfo.end)
 			{
 				m_graph.ways.erase(edge);
-				FindGreatestWay(way.end, cost);
+				edge = m_graph.ways.find(way.end)->first;
+				FindGreatestWay(edge, cost);
 			}
-			return;
+			break;
 		}
 	}
+	return false;
 }
 
 int64_t CSmugglersOperator::DetermineGreatestLoad()
@@ -36,8 +39,12 @@ int64_t CSmugglersOperator::DetermineGreatestLoad()
 		if (m_graph.ways.find(way.end) != m_graph.ways.end())
 		{
 			int64_t cost = way.cost;
-			FindGreatestWay(way.end, cost);
-			m_maxCosts.push_back(cost);
+			auto edge = way.end;
+			FindGreatestWay(edge, cost);
+			if (edge == m_graph.graphInfo.end)
+			{
+				m_maxCosts.push_back(cost);
+			}
 		}
 	}
 
@@ -46,7 +53,9 @@ int64_t CSmugglersOperator::DetermineGreatestLoad()
 		throw std::exception("No.");
 	}
 
-	std::sort(m_maxCosts.begin(), m_maxCosts.end(), [](int64_t n1, int64_t n2) {return n1 < n2; });
+	std::sort(m_maxCosts.begin(), m_maxCosts.end(), [](int64_t n1, int64_t n2) {
+		return n1 < n2;
+	});
 
 	int64_t first = m_maxCosts[m_maxCosts.size() - 1];
 	int64_t second = m_maxCosts[m_maxCosts.size() - 2];

@@ -28,7 +28,7 @@ inline bool const operator <(Target const &target1, Target const &target2)
 	return target2.cost < target1.cost;
 }
 
-using Targets = std::multiset <Target> ;
+using Targets = std::multiset<Target> ;
 using Ways = std::map<size_t, Targets>;
 
 struct Graph

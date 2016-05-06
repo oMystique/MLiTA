@@ -5,38 +5,33 @@
 
 using namespace std;
 
-int main()
+int main(int argc, char *argv[])
 {
-	std::ifstream strm("input.txt");
+	if (argc < 2 || argc > 2)
+	{
+		cout << "Incorrect args count." << endl;
+		return 1;
+	}
 
-	CGraphReader reader;
 	try
 	{
+		ifstream strm(argv[1]);
+
+		CGraphReader reader;
+
 		auto graph = reader.ReadGraph(strm);
-
-		//cout << graph.graphInfo.settlementsNumber << " "
-		//	<< graph.graphInfo.roadNumber << " "
-		//	<< graph.graphInfo.start << " "
-		//	<< graph.graphInfo.end
-		//	<< endl;
-
-		//for (auto i : graph.ways)
-		//{
-		//	std::cout << i.first;
-		//	for (auto j : i.second)
-		//	{
-		//		std::cout << " {" << j.end << ", " << j.cost << '}';
-		//	}
-		//	cout << endl;
-		//}
 
 		CSmugglersOperator oper(std::move(graph));
 		cout << oper.DetermineGreatestLoad() << endl;
-
 	}
 	catch (std::exception const &ex)
 	{
 		cout << ex.what() << endl;
+		return 1;
+	}
+	catch (...)
+	{
+		cout << "Unknow error type." << endl;
 		return 1;
 	}
 
