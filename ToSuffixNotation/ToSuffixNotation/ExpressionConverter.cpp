@@ -47,7 +47,7 @@ istringstream CExpressionConverter::ConvertToElementsStream(string const & expre
 	return istringstream(tempStr);
 }
 
-int CExpressionConverter::OperationPriority(string const &op)const
+int CExpressionConverter::GetOperandPriority(string const &op)
 {
 	switch (op[0])
 	{
@@ -83,13 +83,13 @@ void CExpressionConverter::ProceedWithOperands(string const & op)
 	}
 	else
 	{
-		if (OperationPriority(m_operationsStack.top()) < OperationPriority(op))
+		if (GetOperandPriority(m_operationsStack.top()) < GetOperandPriority(op))
 		{
 			m_operationsStack.push(op);
 		}
 		else
 		{
-			while (!m_operationsStack.empty() && OperationPriority(m_operationsStack.top()) >= OperationPriority(op))
+			while (!m_operationsStack.empty() && GetOperandPriority(m_operationsStack.top()) >= GetOperandPriority(op))
 			{
 				m_outputExpression += m_operationsStack.top() + " ";
 				m_operationsStack.pop();
