@@ -46,22 +46,22 @@ BOOST_AUTO_TEST_SUITE(Smugglers_Tests)
 
 		BOOST_AUTO_TEST_CASE(non_trivial_test_2)
 		{
-			BOOST_CHECK_THROW(ProgramProcess("input2.txt", 0), std::exception);
+			BOOST_CHECK_THROW(ProgramProcess("input2.txt", 0), std::runtime_error);
 		}
 
 		BOOST_AUTO_TEST_CASE(non_trivial_test_3)
 		{
-			BOOST_CHECK_THROW(ProgramProcess("input3.txt", 0), std::exception);
+			BOOST_CHECK_THROW(ProgramProcess("input3.txt", 0), std::runtime_error);
 		}
 
 		BOOST_AUTO_TEST_CASE(non_trivial_test_4)
 		{
-			BOOST_CHECK_THROW(ProgramProcess("input6.txt", 0), std::exception);
+			BOOST_CHECK_THROW(ProgramProcess("input6.txt", 0), std::runtime_error);
 		}
 
 		BOOST_AUTO_TEST_CASE(non_trivial_test_5)
 		{
-			BOOST_CHECK_THROW(ProgramProcess("input7.txt", 0), std::exception);
+			BOOST_CHECK_THROW(ProgramProcess("input7.txt", 0), std::runtime_error);
 		}
 
 	BOOST_AUTO_TEST_SUITE_END()
