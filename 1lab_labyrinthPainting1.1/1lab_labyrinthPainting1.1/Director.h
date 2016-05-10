@@ -1,14 +1,20 @@
 #pragma once
 #include <vector>
 
-using Labyrinth = std::vector<std::vector<char> >;
-using ArrayOfVisits = std::vector<std::vector<bool> >;
+struct Cell
+{
+	char element;
+	bool isVisited;
+};
+
+using Labyrinth = std::vector<std::vector<Cell> >;
 
 static const int WALLS_COUNT = 4;
 
 class CDirector
 {
 public:
+	CDirector() = delete;
 	CDirector(Labyrinth const &labyrinth);
 	int GetLabyrinthWallsQuantity();
 
@@ -18,7 +24,6 @@ private:
 
 private:
 	int m_wallsQuantity;
-	ArrayOfVisits m_visitedCells;
-	const Labyrinth &m_labyrinth;
+	Labyrinth m_labyrinth;
 };
 

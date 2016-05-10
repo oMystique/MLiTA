@@ -3,16 +3,16 @@
 using namespace std;
 
 CDirector::CDirector(Labyrinth const & labyrinth)
-	: m_labyrinth(labyrinth)
+	: m_wallsQuantity(0)
+	, m_labyrinth(labyrinth)
 {
-	m_visitedCells.resize(m_labyrinth.size(), vector<bool>(m_labyrinth.size(), false));
 }
 
 int CDirector::GetLabyrinthWallsQuantity()
 {
 	CalculateWallsQuantity(1, 1);
 
-	if (!m_visitedCells[m_labyrinth.size() - 2][m_labyrinth.size() - 2])
+	if (!m_labyrinth[m_labyrinth.size() - 2][m_labyrinth.size() - 2].isVisited)
 	{
 		CalculateWallsQuantity(m_labyrinth.size() - 2, m_labyrinth.size() - 2);
 	}
@@ -22,7 +22,7 @@ int CDirector::GetLabyrinthWallsQuantity()
 
 void CDirector::CheckSpecificCell(size_t i, size_t j, int &emptyCells)
 {
-	if (m_labyrinth[i][j] == '.')
+	if (m_labyrinth[i][j].element == '.')
 	{
 		++emptyCells;
 		CalculateWallsQuantity(i, j);
@@ -31,9 +31,9 @@ void CDirector::CheckSpecificCell(size_t i, size_t j, int &emptyCells)
 
 void CDirector::CalculateWallsQuantity(size_t i, size_t j)
 {
-	if (!m_visitedCells[i][j])
+	if (!m_labyrinth[i][j].isVisited)
 	{
-		m_visitedCells[i][j] = true;
+		m_labyrinth[i][j].isVisited = true;
 		int emptyCells = 0;
 
 		if (i > 0)

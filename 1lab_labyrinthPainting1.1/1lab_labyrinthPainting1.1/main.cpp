@@ -10,6 +10,7 @@ ifstream OpenFile(string const &fileName)
 {
 	ifstream inputFile;
 	inputFile.open(fileName);
+
 	return inputFile;
 }
 
@@ -33,7 +34,7 @@ int ParseMatrixDimension(ifstream &inputFile)
 
 Labyrinth ParsingFileToLabyrinth(ifstream &inputFile, size_t squareMatrixDimension)
 {
-	Labyrinth labyrinth(squareMatrixDimension + 2, vector<char>(squareMatrixDimension + 2));
+	Labyrinth labyrinth(squareMatrixDimension + 2, vector<Cell>(squareMatrixDimension + 2));
 
 	for (size_t i = 0; i < squareMatrixDimension + 2; ++i)
 	{
@@ -43,11 +44,11 @@ Labyrinth ParsingFileToLabyrinth(ifstream &inputFile, size_t squareMatrixDimensi
 			if ((i == 0) || (i == squareMatrixDimension + 1) 
 				|| (j == 0) || (j == squareMatrixDimension + 1)) 
 			{
-				labyrinth[i][j] = '#';
+				labyrinth[i][j].element = '#';
 			}
 			else
 			{
-				inputFile >> labyrinth[i][j];
+				inputFile >> labyrinth[i][j].element;
 			}
 
 		}
