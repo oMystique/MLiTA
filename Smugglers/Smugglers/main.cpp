@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
 		CSmugglersOperator oper(std::move(graph));
 		cout << oper.DetermineGreatestLoad() << endl;
 	}
-	catch (std::exception const &ex)
+	catch (std::runtime_error const &ex)
 	{
 		cout << ex.what() << endl;
 		return 1;

@@ -1,7 +1,7 @@
 #pragma once
 #include <stdint.h>
-#include <map>
 #include <set>
+#include <unordered_map>
 
 struct GraphInfo
 {
@@ -29,7 +29,7 @@ inline bool const operator <(Target const &target1, Target const &target2)
 }
 
 using Targets = std::multiset<Target> ;
-using Ways = std::map<size_t, Targets>;
+using Ways = std::unordered_map<size_t, Targets>;
 
 struct Graph
 {

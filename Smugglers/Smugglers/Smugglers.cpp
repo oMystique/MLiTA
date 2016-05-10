@@ -38,7 +38,7 @@ int64_t CSmugglersOperator::DetermineGreatestLoad()
 	{
 		if (m_graph.ways.find(way.end) != m_graph.ways.end())
 		{
-			int64_t cost = way.cost;
+			auto cost = way.cost;
 			auto edge = way.end;
 			FindGreatestWay(edge, cost);
 			if (edge == m_graph.graphInfo.end)
@@ -50,7 +50,7 @@ int64_t CSmugglersOperator::DetermineGreatestLoad()
 
 	if (m_maxCosts.size() <= 1)
 	{
-		throw std::exception("No.");
+		throw std::runtime_error("No.");
 	}
 
 	std::sort(m_maxCosts.begin(), m_maxCosts.end(), [](int64_t n1, int64_t n2) {

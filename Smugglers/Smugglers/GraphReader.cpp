@@ -11,7 +11,7 @@ Graph CGraphReader::ReadGraph(std::istream & strm)
 
 	if (!GraphInfoIsCorrect())
 	{
-		throw std::exception("Incorrect input data.");
+		throw std::runtime_error("Incorrect input data.");
 	}
 
 	while (!strm.eof())
