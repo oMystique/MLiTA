@@ -43,6 +43,10 @@ istringstream CExpressionConverter::ConvertToElementsStream(string const & expre
 
 	replace_all(tempStr, "(", " ( ");
 	replace_all(tempStr, ")", " ) ");
+	replace_all(tempStr, "+", " + ");
+	replace_all(tempStr, "-", " - ");
+	replace_all(tempStr, "*", " * ");
+	replace_all(tempStr, "/", " / ");
 
 	return istringstream(tempStr);
 }

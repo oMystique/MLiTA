@@ -3,8 +3,8 @@
 
 struct Cell
 {
-	char element;
-	bool isVisited;
+	char element = '\0';
+	bool isVisited = false;
 };
 
 using Labyrinth = std::vector<std::vector<Cell> >;
