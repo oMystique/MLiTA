@@ -16,5 +16,5 @@ private:
 	void PopAllOperands();
 private:
 	OperationsStack m_operationsStack;
-	std::string m_outputExpression = "";
+	std::string m_outputExpression;
 };

@@ -16,7 +16,7 @@ BOOST_AUTO_TEST_SUITE(to_suffix_notation_function_tests)
 
 		BOOST_AUTO_TEST_CASE(trivial_test_1)
 		{
-			BOOST_CHECK_EQUAL(exprConverter.ToSuffixNotation("2.4 + 10 * (1 + 2)"), "2.4 10 1 2 + * +");
+			BOOST_CHECK_EQUAL(exprConverter.ToSuffixNotation("2.4 + 10 * ( 1 + 2 )"), "2.4 10 1 2 + * +");
 		}
 
 		BOOST_AUTO_TEST_CASE(trivial_test_2)
@@ -30,7 +30,7 @@ BOOST_AUTO_TEST_SUITE(to_suffix_notation_function_tests)
 
 		BOOST_AUTO_TEST_CASE(non_trivial_test_1)
 		{
-			BOOST_CHECK_EQUAL(exprConverter.ToSuffixNotation("((2 + 2) * 2) * 2"), "2 2 + 2 * 2 *");
+			BOOST_CHECK_EQUAL(exprConverter.ToSuffixNotation("((2+2) * 2) * 2"), "2 2 + 2 * 2 *");
 		}
 
 		BOOST_AUTO_TEST_CASE(non_trivial_test_2)
@@ -46,6 +46,16 @@ BOOST_AUTO_TEST_SUITE(to_suffix_notation_function_tests)
 		BOOST_AUTO_TEST_CASE(non_trivial_test_4)
 		{
 			BOOST_CHECK_EQUAL(exprConverter.ToSuffixNotation("( 4 + 5 ) * x - (y / 2 + 15)"), "4 5 + x * y 2 / 15 + -");
+		}
+
+		BOOST_AUTO_TEST_CASE(operator_precedence_parsed_correct)
+		{
+			BOOST_CHECK_EQUAL(exprConverter.ToSuffixNotation("a * d + b * c"), "a d * b c * +");
+		}
+
+		BOOST_AUTO_TEST_CASE(association_rules_test)
+		{
+			BOOST_CHECK_EQUAL(exprConverter.ToSuffixNotation("30 / 5 / 3 / 2"), "30 5 / 3 / 2 /");
 		}
 
 	BOOST_AUTO_TEST_SUITE_END()
