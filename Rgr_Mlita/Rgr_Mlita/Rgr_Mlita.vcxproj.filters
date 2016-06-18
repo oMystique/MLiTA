@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\Labyrinth">
+      <UniqueIdentifier>{d7d4919f-8975-446b-b7b3-c07798c15a9d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Labyrinth">
+      <UniqueIdentifier>{dd15bb70-30bb-48f9-a48a-fa061ae5e575}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Labyrinth\Controller">
+      <UniqueIdentifier>{2144955e-1e9b-46d3-ba6c-7e9f2a87b1f2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Labyrinth\Controller">
+      <UniqueIdentifier>{cf259297-5738-4871-8bcf-4c6dd4da0d86}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Labyrinth\View">
+      <UniqueIdentifier>{f682f40a-97ee-4527-868d-d5b1f7467894}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Labyrinth\Model">
+      <UniqueIdentifier>{e66948bd-41ff-40bf-bc3a-63f64f428815}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Labyrinth\Model">
+      <UniqueIdentifier>{416edfe3-7a09-4e7e-bc2b-a83d8c11bee2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Labyrinth\View">
+      <UniqueIdentifier>{7ca6bf07-2a62-4600-838d-d831f5b40a97}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AppMenu.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AppWindow.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="tinyfiledialogs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LabyrinthGraphic.h">
+      <Filter>Header Files\Labyrinth\View</Filter>
+    </ClInclude>
+    <ClInclude Include="signals.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Definitions.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LabyrinthParser.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LabyrinthModel.h">
+      <Filter>Header Files\Labyrinth\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="LabyrinthController.h">
+      <Filter>Header Files\Labyrinth\Controller</Filter>
+    </ClInclude>
+    <ClInclude Include="Canvas.h">
+      <Filter>Header Files\Labyrinth</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Rgr_Mlita.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AppMenu.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AppWindow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="tinyfiledialogs.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LabyrinthGraphic.cpp">
+      <Filter>Source Files\Labyrinth\View</Filter>
+    </ClCompile>
+    <ClCompile Include="LabyrinthParser.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LabyrinthModel.cpp">
+      <Filter>Source Files\Labyrinth\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="LabyrinthController.cpp">
+      <Filter>Source Files\Labyrinth\Controller</Filter>
+    </ClCompile>
+    <ClCompile Include="Canvas.cpp">
+      <Filter>Source Files\Labyrinth</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
